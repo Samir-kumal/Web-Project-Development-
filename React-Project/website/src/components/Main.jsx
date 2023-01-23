@@ -8,10 +8,13 @@ import Logo3 from '../assets/assets/Branding-logo.png';
 import Logo4 from '../assets/assets/Web-development-logo.png';
 import Logo5 from '../assets/assets/Reception-logo.png';
 import Logo6 from '../assets/assets/UI-UX-logo.png';
+import Header from './Layout/Header';
+import Footer from './Layout/Footer';
 
 const Main = () => {
     return (
         <div>
+        <Header/>
             <main>
                 <section className="relative">
                     <div
@@ -269,6 +272,7 @@ const Main = () => {
                 </div>
             </section>
         </main>
+        <Footer/>
     </div >
   )
 }
