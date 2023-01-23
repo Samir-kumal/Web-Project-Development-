@@ -8,10 +8,34 @@ import Logo3 from '../assets/assets/Branding-logo.png';
 import Logo4 from '../assets/assets/Web-development-logo.png';
 import Logo5 from '../assets/assets/Reception-logo.png';
 import Logo6 from '../assets/assets/UI-UX-logo.png';
+import Header from './Layout/Header';
+import Footer from './Layout/Footer';
+import Testimonial from './pages/Testomonial';
+import Technology from './pages/Technology';
 
 const Main = () => {
+    const testimonials = [
+        {
+          text: "This is a great service. I highly recommend it.",
+          author: "John Doe"
+        },
+        {
+          text: "I've been using this for a while now and it's been fantastic.",
+          author: "Jane Smith"
+        },
+        {
+          text: "I was hesitant at first but now I'm a believer.",
+          author: "Bob Johnson"
+        }
+      ];
+      const technology = [
+        "https://source.unsplash.com/random/200x200?sig=1",
+        "https://source.unsplash.com/random/200x200?sig=2",
+        "https://source.unsplash.com/random/200x200?sig=3"
+      ];
     return (
         <div>
+        <Header/>
             <main>
                 <section className="relative">
                     <div
@@ -249,11 +273,11 @@ const Main = () => {
                         </div>
                     </div>
             </section>
-            <section className="h-screen">
+            <section className="h-screen ">
                 <div className="third-section w-full flex justify-center ">
-                    <h1 className="text-4xl">About us</h1>
+                    <h1 className="text-4xl my-5">About us</h1>
                 </div>
-                <br /><br /><br />
+                
                 <div className="About-us flex w-[70%] m-auto px-10 gap-24 shadow-2xl p-4 h-[400px]">
 
                     <p className="text-xl pt-10">
@@ -268,7 +292,14 @@ const Main = () => {
                     <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80" alt="" height="300px" width="400px" />
                 </div>
             </section>
+            <section className='h-screen'>
+                <Testimonial testimonials={testimonials}/>
+            </section>
+            <section className='h-screen'>
+                <Technology technology={technology}/>
+            </section>
         </main>
+        <Footer/>
     </div >
   )
 }

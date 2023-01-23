@@ -1,8 +1,9 @@
 import { useState } from 'react'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from './components/Layout/Header'
+import Footer from './components/Layout/Footer'
 import Main from './components/Main'
 
 function App() {
@@ -10,9 +11,11 @@ function App() {
 
   return (
     <div className="App">
-     <Header/>
-     <Main/>
-     <Footer/>
+     <BrowserRouter basename='/'>
+    <Routes>
+      <Route path='/' element={<Main/>}/>
+    </Routes>
+   </BrowserRouter>
     </div>
   )
 }
