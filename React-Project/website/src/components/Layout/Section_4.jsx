@@ -1,0 +1,101 @@
+import React, { useEffect, useRef,useState } from "react";
+import Slider from "react-slick";
+import KPoli from '/src/images/KP_ba.jpg';
+import Prachanda from '/src/images/prachanda.jpg';
+import Ravi from '/src/images/RAvi.jpg';
+import Deuba from '/src/images/deuba.jpg';
+import "/src/App.css";
+
+const Section_4 = () => {
+  const sliderRef = useRef(null);
+  const [slideToShow, setSlideToShow] = useState(3);
+
+  useEffect(() => {
+    let currentSlide = 0;
+    const slider = sliderRef.current;
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % 4; // assuming there are 3 slides
+
+      slider.slickNext()
+    }, 10000);
+
+    
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 1000 && window.innerWidth >= 500) {
+        setSlideToShow(2);
+      } else if (window.innerWidth < 500) {
+        setSlideToShow(1);
+      } else {
+        setSlideToShow(3);
+      }
+    };
+  
+    window.addEventListener("resize", handleResize);
+  
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: slideToShow,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 10000,
+    swipeToSlide:true,
+    
+  };
+
+
+  return (
+    <div className="testimonials xs:w-[100%] md:w-[100%] xl:w-[80%]  h-[500px]  m-auto  ">
+      <h2>Testimonials</h2>
+      <Slider  ref={sliderRef} {...settings}>
+        <div className="card ">
+          <img className="card-img-top" src={Ravi} alt="Person 1" />
+          <br />
+          <div className="card-body ">
+            <h5>Ravi Lamichane<span>- Home Minister</span></h5>
+            <p className="pt-2">Suscriber.org has a great sevice, i have been their customer and am planning to be in future too</p>
+          </div>
+        </div>
+        <div className="card  w-[200px]">
+          <img className="card-img-top" src={Prachanda} alt="Person 2" />
+          <br />
+          <div className="card-body">
+            <h5>Prachanda <span>- Prime Minister</span></h5>
+            <p className="pt-2">Suscriber.org has a great sevice, i have been their customer and am planning to be in future too</p>
+
+          </div>
+        </div>
+        <div className="card  ">
+          <img className="card-img-top" src={Deuba} alt="Person 2" />
+          <br />
+          <div className="card-body">
+            <h5>Deuba<span>- EX- PM</span></h5>
+            <p className="pt-2">Suscriber.org has a great sevice, i have been their customer and am planning to be in future too</p>
+
+          </div>
+        </div>
+        <div className="card ">
+          <img className="card-img-top" src={KPoli} alt="Person 2" />
+          <br />
+          <div className="card-body">
+            <h5>KP. Oli<span>- Guffadi Budo</span></h5>
+            <p className="pt-2">Suscriber.org has a great sevice, i have been their customer and am planning to be in future too</p>
+
+          </div>
+        </div>
+      </Slider>
+    </div>
+  );
+}
+
+export default Section_4;

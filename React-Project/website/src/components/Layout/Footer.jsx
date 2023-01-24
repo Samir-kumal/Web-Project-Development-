@@ -33,7 +33,7 @@ const Footer = () => {
           <h1 className="font-bold tracking-wider">NEWS LETTER</h1>
           <div className="emailform">
             <input className="rounded-sm p-3 w-full text-black" type="text" placeholder="Email"/>
-            <p classNameName='text-sm'>Sign up today to know more about our platform and services.</p>
+            <p className='text-sm'>Sign up today to know more about our platform and services.</p>
           </div>
           <br />
           <div className="social-links ">
