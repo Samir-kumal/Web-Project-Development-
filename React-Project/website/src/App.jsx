@@ -1,25 +1,23 @@
-import { useState } from 'react'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import reactLogo from './assets/react.svg'
-import './App.css'
-import Header from './components/Layout/Header'
-import Footer from './components/Layout/Footer'
-import Main from './components/Main'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import "./App.css";
+
+import Main from "./components/Main";
+import ContactPage from "./components/pages/Contact";
+import Err404page from "./components/pages/Err404page";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-    <Header/>
-     <BrowserRouter basename='/'>
-    <Routes>
-      <Route path='/'  element={<Main/>}/>
-    </Routes>
-   </BrowserRouter>
-   <Footer/>
-    </div>
-  )
+    <>
+      <BrowserRouter basename="/">
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/*" element={<Err404page />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
-export default App
+export default App;
