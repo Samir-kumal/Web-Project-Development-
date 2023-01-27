@@ -38,7 +38,7 @@ const ContactPage = () => {
         alert("An error occurred while submitting the form");
       });
   };
-  // console.log(formData.name,formData.email,formData.message);
+  console.log(formData.name,formData.email,formData.message);
 
   return (
     <>
