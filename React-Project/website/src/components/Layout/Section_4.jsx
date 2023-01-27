@@ -17,8 +17,8 @@ const Section_4 = () => {
     setInterval(() => {
       currentSlide = (currentSlide + 1) % 4; // assuming there are 3 slides
 
-      slider.slickNext()
-    }, 10000);
+      
+    }, 100);
 
     
   }, []);
@@ -57,7 +57,10 @@ const Section_4 = () => {
   return (
     <div className="testimonials xs:w-[100%] md:w-[100%] xl:w-[80%]  h-[500px]  m-auto  ">
       <h2>Testimonials</h2>
+      <p>What our client's say about us</p>
       <Slider  ref={sliderRef} {...settings}>
+        
+        <div style={{display:"flex", gap:"5rem"}}>
         <div className="card ">
           <img className="card-img-top" src={Ravi} alt="Person 1" />
           <br />
@@ -66,7 +69,9 @@ const Section_4 = () => {
             <p className="pt-2">Suscriber.org has a great sevice, i have been their customer and am planning to be in future too</p>
           </div>
         </div>
-        <div className="card  w-[200px]">
+        </div>
+        <div style={{display:"flex", gap:"5rem"}}>
+        <div className="card ">
           <img className="card-img-top" src={Prachanda} alt="Person 2" />
           <br />
           <div className="card-body">
@@ -75,6 +80,8 @@ const Section_4 = () => {
 
           </div>
         </div>
+        </div>
+        <div style={{display:"flex", gap:"5rem"}}>
         <div className="card  ">
           <img className="card-img-top" src={Deuba} alt="Person 2" />
           <br />
@@ -84,6 +91,8 @@ const Section_4 = () => {
 
           </div>
         </div>
+        </div>
+        <div style={{display:"flex", gap:"5rem"}}>
         <div className="card ">
           <img className="card-img-top" src={KPoli} alt="Person 2" />
           <br />
@@ -93,6 +102,9 @@ const Section_4 = () => {
 
           </div>
         </div>
+        </div>
+       
+       
       </Slider>
     </div>
   );

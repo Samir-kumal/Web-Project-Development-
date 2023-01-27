@@ -1,11 +1,11 @@
 import React from 'react'
-import { BrowserRouter, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Image from '../../assets/assets/site-logo.png';
 
 const Header = () => {
   return (
-    <BrowserRouter>
-    <header className="Navbar px-2 shadow-xl fixed z-30 h-20 w-full bg-red-600 flex items-center justify-between">
+
+    <header className="Navbar px-2 shadow-xl fixed z-30 h-20 w-full bg-red-600 flex items-center justify-between" style={{top:"0"}}>
         <div className="logo">
             <img src={Image} alt="" height="90px" width="90px"/>
         </div>
@@ -25,7 +25,7 @@ const Header = () => {
         </div>
 
     </header>
-    </BrowserRouter>
+  
   )
 }
 
