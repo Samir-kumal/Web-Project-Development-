@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Image from "../../assets/assets/site-logo.png";
 import { useRef } from "react";
 import { useState } from "react";
@@ -9,144 +9,183 @@ const Header = () => {
   const [subMenu2, setSubMenu2] = useState(false);
   const [subMenu3, setSubMenu3] = useState(false);
   const [Navbar, setNavbar] = useState(false);
+  const location = useLocation();
+  let navbarStyle = {};
 
-  const Toggle = () =>{
+  const Toggle = () => {
     if (Menu) {
+      setMenu(false);
+    } else {
+      setMenu(true);
+    }
+  };
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 1024) {
         setMenu(false);
-    } else{
+      } else {
         setMenu(true);
-    }
-  }
-  useEffect (()=>{
-    const handleResize = () =>{
-        if (window.innerWidth < 1024) {
-            setMenu(false);
-        } else{
-            setMenu(true);
-        }
-    }
+      }
+    };
 
     handleResize();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-        window.addEventListener('resize', handleResize);
+      window.addEventListener("resize", handleResize);
     };
-   
-  },[]);
+  }, []);
 
-  useEffect(()=>{
-    const headerscroll =()=>{
-      if (window.scrollY >= 80){
-    console.log("Hello");
+  useEffect(() => {
+    const headerscroll = () => {
+      if (window.scrollY >= 80) {
+        console.log("Hello");
 
         setNavbar(true);
-      } else{
+      } else {
         setNavbar(false);
       }
-    }
+    };
 
     headerscroll();
-    return () =>{
-      window.addEventListener('scroll',headerscroll);
-    }
-  },[])
+    window.addEventListener("scroll", headerscroll);
 
+    return () => {
+      window.removeEventListener("scroll", headerscroll);
+    };
+  }, []);
+
+  if (location.pathname !== '/') {
+    navbarStyle = { backgroundColor: '#DC2626' }
+  } else {
+    navbarStyle = { backgroundColor: 'transparent' }
+  }
 
 
   return (
-    <BrowserRouter>
-      <header  className={Navbar ? 'Navbar sticky  h-20 w-full  lg:flex items-center justify-between' : 'Navbar fixed z-10 h-20 w-full lg:flex items-center justify-between'} >
+    
+      <header style={navbarStyle}
+        className={
+          Navbar
+            ? "Navbar sticky  h-20 w-full  lg:flex items-center justify-between"
+            : "Navbar fixed z-10 h-20 w-full lg:flex items-center justify-between"
+        }
+      >
         <div className="logo">
           <img src={Image} alt="" height="90px" width="90px" />
         </div>
-       {Menu && (<div className="lg:flex lg:w-[80%] Navmenu">
-        <div className="menu flex items-center   ">
-          <ul className="menu-items  lg:flex text-white xl:gap-8">
-            <li className="menu-item main-home text-xl px-4">
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li onClick={()=> !subMenu1 ? setSubMenu1(true): setSubMenu1(false)}  className="menu-item  text-xl px-4">
-              <NavLink to="/service">Services</NavLink>
-           {subMenu1 && (<div className=" sub-menu z-10 bg-white p-4  lg:absolute lg:w-[80%] lg:h-[200px] lg:right-[10%] lg:invisible lg:opacity-0 lg:translate-y-[2.5rem] ">
-                <hr />
-                <ul className="pl-4 font-bold text-black text-lg lg:grid lg:grid-cols-4">
-                  <li>
-                    <a href="">Logo Designing</a>
-                  </li>
-                  <li>
-                    <a href="">Digital marketing</a>
-                  </li>
-                  <li>
-                    <a href="">Branding</a>
-                  </li>
-                  <li>
-                    <a href="">Web Designing</a>
-                  </li>
-                  <li>
-                    <a href="">Online reception services</a>
-                  </li>
-                  <li>
-                    <a href="">UI/UX</a>
-                  </li>
-                </ul>
-              </div>)}
-            </li>
-            <li onClick={()=> !subMenu2 ? setSubMenu2(true): setSubMenu2(false)} className="menu-item  text-xl px-4">
-              <NavLink to="/work">Pricing</NavLink>
-             {subMenu2 && (<div className=" sub-menu rounded z-10 p-4 bg-white  lg:absolute  lg:w-[80%] lg:h-[200px] lg:left-[10%] lg:invisible lg:opacity-0 lg:translate-y-[2.5rem]  ">
-                <hr />
-                <ul className="pl-4 font-bold text-black text-lg lg:grid lg:grid-cols-3">
-                  <li>
-                    <a href="">Web Development pakages</a>
-                  </li>
-                  <li className="border">
-                    <a href="">Digital marketing pakages</a>
-                  </li>
-                  <li>
-                    <a href="">Youtube Subsription packages</a>
-                  </li>
-                </ul>
-              </div>)}
-            </li>
-            <li className="menu-item  text-xl px-4">
-              <NavLink to="/portfolio">Portfolio</NavLink>
-            </li>
-            <li onClick={()=> !subMenu3 ? setSubMenu3(true): setSubMenu3(false)} className="menu-item text-xl px-4">
-              <NavLink to="/about">About us</NavLink>
-            {subMenu3 && ( <div className="sub-menu lg:rounded z-10  p-4 bg-white lg:absolute  lg:right-[10%] lg:w-[80%] lg:h-[200px]    lg:invisible lg:opacity-0 lg:translate-y-[2.5rem] ">
-                <hr />
-                <ul className="pl-4 font-bold text-lg text-black lg:grid lg:grid-cols-4 lg:gap-10">
-                  <li>
-                    <a href="">Introduction</a>
-                  </li>
-                  <span className="h-40 opacity-10 rounded-xl w-[2px] mt-2 bg-black left-[20%] absolute"></span>
-                  <li>
-                    <a href="">How we work</a>
-                  </li>
-                  <span className="h-40 w-[2px] opacity-10 rounded-xl mt-2 bg-black left-[45%] absolute"></span>
+        {Menu && (
+          <div className="lg:flex lg:w-[80%] Navmenu">
+            <div className="menu flex items-center   ">
+              <ul className="menu-items  lg:flex text-white xl:gap-8">
+                <li className="menu-item main-home text-xl px-4">
+                  <NavLink to="/">Home</NavLink>
+                </li>
+                <li
+                  onClick={() =>
+                    !subMenu1 ? setSubMenu1(true) : setSubMenu1(false)
+                  }
+                  onMouseEnter ={()=> setSubMenu1(true)} onMouseLeave ={()=> setSubMenu1(false)}
+                  className="menu-item  text-xl px-4"
+                >
+                  <NavLink to="/service">Services</NavLink>
+                  {subMenu1 && (
+                    <div className=" sub-menu z-10 bg-white p-4  lg:absolute lg:w-[80%] lg:h-[200px] lg:right-[10%] lg:invisible lg:opacity-0 lg:translate-y-[2.5rem] ">
+                      <hr />
+                      <ul className="pl-4 font-bold text-black text-lg lg:grid lg:grid-cols-4">
+                        <li>
+                          <a href="">Logo Designing</a>
+                        </li>
+                        <li>
+                          <a href="">Digital marketing</a>
+                        </li>
+                        <li>
+                          <a href="">Branding</a>
+                        </li>
+                        <li>
+                          <a href="">Web Designing</a>
+                        </li>
+                        <li>
+                          <a href="">Online reception services</a>
+                        </li>
+                        <li>
+                          <a href="">UI/UX</a>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
+                </li>
+                <li
+                  onClick={() =>
+                    !subMenu2 ? setSubMenu2(true) : setSubMenu2(false)
+                  }
+                  onMouseEnter ={()=> setSubMenu2(true)} onMouseLeave ={()=> setSubMenu2(false)}
+                  className="menu-item  text-xl px-4"
+                >
+                  <NavLink to="/work">Pricing</NavLink>
+                  {subMenu2 && (
+                    <div className=" sub-menu rounded z-10 p-4 bg-white  lg:absolute  lg:w-[80%] lg:h-[200px] lg:left-[10%] lg:invisible lg:opacity-0 lg:translate-y-[2.5rem]  ">
+                      <hr />
+                      <ul className="pl-4 font-bold text-black text-lg lg:grid lg:grid-cols-3">
+                        <li>
+                          <a href="">Web Development pakages</a>
+                        </li>
+                        <li className="border">
+                          <a href="">Digital marketing pakages</a>
+                        </li>
+                        <li>
+                          <a href="">Youtube Subsription packages</a>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
+                </li>
+                <li className="menu-item  text-xl px-4">
+                  <NavLink to="/portfolio">Portfolio</NavLink>
+                </li>
+                <li
+                  onClick={() =>
+                    !subMenu3 ? setSubMenu3(true) : setSubMenu3(false)
+                  }
+                  onMouseEnter ={()=> setSubMenu3(true)} onMouseLeave ={()=> setSubMenu3(false)} className="menu-item text-xl px-4"
+                >
+                  <NavLink to="/about">About us</NavLink>
+                  {subMenu3 && (
+                    <div className="sub-menu lg:rounded z-10  p-4 bg-white lg:absolute  lg:right-[10%] lg:w-[80%] lg:h-[200px]    lg:invisible lg:opacity-0 lg:translate-y-[2.5rem] ">
+                      <hr />
+                      <ul className="pl-4 font-bold text-lg text-black lg:grid lg:grid-cols-4 lg:gap-10">
+                        <li>
+                          <a href="">Introduction</a>
+                        </li>
+                        <span className="h-40 opacity-10 rounded-xl w-[2px] mt-2 bg-black left-[20%] absolute"></span>
+                        <li>
+                          <a href="">How we work</a>
+                        </li>
+                        <span className="h-40 w-[2px] opacity-10 rounded-xl mt-2 bg-black left-[45%] absolute"></span>
 
-                  <li>
-                    <a href="">Our Activities</a>
-                  </li>
-                  <span className="h-40 w-[2px] opacity-10 rounded-xl mt-2 bg-black left-[70%] absolute"></span>
-                  <li>
-                    <a href="">Our Team</a>
-                  </li>
-                </ul>
-              </div>)}
-            </li>
-            <li className="menu-item  text-xl px-4">
-              <NavLink to="/contact">Contact us</NavLink>
-            </li>
-          </ul>
-        </div>
-        <div className="lg:translate-x-[-3rem] lg:absolute lg:right-0 lg:top-2  translate-x-0 p-2">
-          <button className="header-Btn text-red-500 bg-white px-4 py-3 rounded-3xl">
-            Join with us
-          </button>
-        </div>
-        </div>)}
+                        <li>
+                          <a href="">Our Activities</a>
+                        </li>
+                        <span className="h-40 w-[2px] opacity-10 rounded-xl mt-2 bg-black left-[70%] absolute"></span>
+                        <li>
+                          <a href="">Our Team</a>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
+                </li>
+                <li className="menu-item  text-xl px-4">
+                  <NavLink to="/contact">Contact us</NavLink>
+                </li>
+              </ul>
+            </div>
+            <div className="lg:translate-x-[-3rem] lg:absolute lg:right-0 lg:top-2  translate-x-0 p-2">
+              <button className="header-Btn text-red-500 bg-white px-4 py-3 rounded-3xl">
+                Join with us
+              </button>
+            </div>
+          </div>
+        )}
         <div onClick={Toggle} className="lg:hidden absolute top-8 right-6   ">
           <svg
             width="40"
@@ -162,9 +201,7 @@ const Header = () => {
           </svg>
         </div>
       </header>
-  </BrowserRouter>
-      
-  
+    
   );
 };
 

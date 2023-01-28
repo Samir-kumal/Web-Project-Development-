@@ -45,7 +45,7 @@ const ContactPage = () => {
       <Header />
       <div>
         {/* <Header /> */}
-        <main style={{ marginTop: "5rem" }}>
+        <main className="translate-y-20 mb-20">
           <div
             style={{
               width: "100%",
