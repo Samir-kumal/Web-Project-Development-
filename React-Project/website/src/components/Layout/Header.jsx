@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Image from "../../assets/assets/site-logo.png";
 import { useRef } from "react";
 import { useState } from "react";
@@ -162,7 +162,7 @@ const Header = () => {
           </svg>
         </div>
       </header>
-    </BrowserRouter>
+  
   );
 };
 
