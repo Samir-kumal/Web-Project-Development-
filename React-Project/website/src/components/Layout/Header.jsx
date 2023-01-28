@@ -162,6 +162,8 @@ const Header = () => {
           </svg>
         </div>
       </header>
+  </BrowserRouter>
+      
   
   );
 };
