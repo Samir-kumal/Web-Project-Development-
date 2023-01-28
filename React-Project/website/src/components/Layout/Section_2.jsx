@@ -9,14 +9,14 @@ import Logo6 from "/src/assets/assets/UI-UX-logo.png";
 const Section_2 = () => {
   return (
     <div>
-      <section className="bg-[rgb(238,238,238)]">
-        <div className="cards-section w-[80%] m-auto h-[900px]">
+      <section className=" h-fit ">
+        <div className="cards-section w-[80%] m-auto h-fit">
           <div className="desc h-32 flex justify-center items-center">
-            <h1 className="text-3xl">
+            <h1 className="text-3xl font-serif font-bold">
               We Provide The Best Service With Our Tools
             </h1>
           </div>
-          <div className="cards grid grid-cols-3  gap-12 justify-center">
+          <div className="cards grid lg:grid-cols-3 md:grid-cols-2 sm-grid-cols-1  gap-12 justify-center">
             <div className="flex justify-center transition duration-200 hover:scale-80">
               <div className="flex flex-col items-center p-6 rounded-lg shadow-lg transition duration-200 hover:scale-105 bg-white max-w-sm">
                 <h5 className="text-gray-900 text-xl leading-tight font-bold mb-2">

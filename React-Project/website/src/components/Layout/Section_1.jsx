@@ -1,73 +1,26 @@
 import React from "react";
 import 'tw-elements';
-import Slide1 from "/src/Images/Slide1.jpg"
 import Slide2 from "/src/Images/Slide2.jpg";
 import Slide3 from "/src/Images/Slide3.jpg";
 
 const Section_1 = () => {
   return (
     <div>
-      <section className="relative">
-        <div
-          id="carouselExampleControls"
-          className="carousel slide relative"
-          data-bs-ride="carousel"
-        >
-          <div className="carousel-inner relative w-full overflow-hidden bg-black">
-            <div className="carousel-item active relative float-left w-full opacity-50">
-              <img src={Slide1} className="block w-full" alt="Wild Landscape" />
-            </div>
-            {/* <div className="carousel-item relative float-left w-full opacity-50">
-                                <img
-                                    src={Slide2}
-                                    className="block w-full"
-                                    alt="Camera"
-                                />
-                            </div>
-                            <div className="carousel-item relative float-left w-full opacity-50">
-                                <img
-                                    src={Slide3}
-                                    className="block w-full"
-                                    alt="Exotic Fruits"
-                                />
-                            </div> */}
-          </div>
-          <button
-            className="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
-            type="button"
-            data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev"
-          >
-            <span
-              className=" inline-block bg-no-repeat"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden"></span>
-          </button>
-          <button
-            className="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
-            type="button"
-            data-bs-target="#carouselExampleControls"
-            data-bs-slide="next"
-          >
-            <span
-              className="carousel-control-next-icon inline-block bg-no-repeat"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Next</span>
-          </button>
+      <section className="relative h-fit bg-black ">
+        <div className="image-slide opacity-40 w-full h-[700px] bg-red-300">
+
         </div>
         <div className="page-main-content absolute top-[45%] left-8 text-white">
           <h1 className="text-xl font-semibold text-white">Welcome to</h1>
-          <h1 className="text-4xl font-semibold text-red-600">
+          <h1 className="lg:text-4xl text-4xl font-semibold text-red-600">
             {" "}
             Subsriber.org{" "}
           </h1>
-          <h1 className="text-5xl">
+          <h1 className="lg:text-5xl  text-5xl">
             Nepal's Leading Digital Marketing Agency!
           </h1>
           <br />
-          <p className="text-xl">
+          <p className="lg:visible lg:h-fit h-0  invisible lg:text-xl">
             Suscriber.org is a leading online company that provides a wide range
             of digital marketing, <br />
             web designing, and online reception services to help businesses of

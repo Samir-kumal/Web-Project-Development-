@@ -3,15 +3,12 @@ import React from "react";
 const Section_3 = () => {
   return (
     <div>
-      <section className="h-[500px] ">
+      <section className="mt-12 pt-4 pb-12 h-fit bg-white ">
         <div className="third-section w-full flex justify-center ">
-          <h1 className="text-4xl">About us</h1>
+          <h1 className="font-serif font-bold text-4xl">About Us</h1>
         </div>
-        <br />
-        <br />
-        <br />
-        <div className="About-us flex w-[70%] m-auto px-10 gap-24 shadow-2xl p-4 h-[400px]">
-          <p className="text-xl pt-10">
+        <div className="About-us lg:flex w-[70%] m-auto mt-8 px-10 gap-24 shadow-2xl p-4 h-fit">
+          <p className="lg:text-xl pt-10">
             Suscriber.org is a leading online company <br />
             that provides a wide range of digital <br />
             marketing, web designing, and online reception <br />

@@ -39,12 +39,20 @@ const Header = () => {
   useEffect(() => {
     const headerscroll = () => {
       if (window.scrollY >= 80) {
-        console.log("Hello");
-
+        if (window.innerWidth <= 1024 || window.innerWidth > 1024) {
         setNavbar(true);
-      } else {
+        console.log("true");
+
+          
+        }
+      } else  {
+        if (window.innerWidth <= 1024 || window.innerWidth > 1024) {
         setNavbar(false);
+        console.log("false")
+        };
       }
+
+
     };
 
     headerscroll();
@@ -75,9 +83,9 @@ const Header = () => {
           <img src={Image} alt="" height="90px" width="90px" />
         </div>
         {Menu && (
-          <div className="lg:flex lg:w-[80%] Navmenu">
-            <div className="menu flex items-center   ">
-              <ul className="menu-items  lg:flex text-white xl:gap-8">
+          <div className="lg:flex lg:w-[80%]  Navmenu">
+            <div className="menu flex  items-center   ">
+              <ul className="menu-items  lg:flex text-white xl:gap-[2rem]">
                 <li className="menu-item main-home text-xl px-4">
                   <NavLink to="/">Home</NavLink>
                 </li>
@@ -85,31 +93,50 @@ const Header = () => {
                   onClick={() =>
                     !subMenu1 ? setSubMenu1(true) : setSubMenu1(false)
                   }
-                  onMouseEnter ={()=> setSubMenu1(true)} onMouseLeave ={()=> setSubMenu1(false)}
+                  onMouseOver ={()=> setSubMenu1(true)} onMouseLeave ={()=> setSubMenu1(false)}
                   className="menu-item  text-xl px-4"
                 >
                   <NavLink to="/service">Services</NavLink>
                   {subMenu1 && (
-                    <div className=" sub-menu z-10 bg-white p-4  lg:absolute lg:w-[80%] lg:h-[200px] lg:right-[10%] lg:invisible lg:opacity-0 lg:translate-y-[2.5rem] ">
-                      <hr />
-                      <ul className="pl-4 font-bold text-black text-lg lg:grid lg:grid-cols-4">
+                    <div  onMouseOver ={()=> setSubMenu1(true)} onMouseLeave ={()=> setSubMenu1(false)} className=" sub-menu z-10 bg-white p-4 
+                    shadow-xl lg:absolute  lg:w-[80%] lg:h-fit pb-4 h-fit  lg:right-[10%] lg:invisible lg:opacity-0 lg:translate-y-[2.5rem] ">
+                      <hr className="p-1 border-t-2 " />
+                      <ul className="pl-4  font-bold text-black text-lg lg:grid lg:grid-cols-4">
                         <li>
                           <a href="">Logo Designing</a>
+                          <p className="text-sm font-light ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </li>
+                        <span className="h-40 opacity-10 rounded-xl w-[2px] mt-2 bg-black left-[26%] absolute"></span>
+
                         <li>
                           <a href="">Digital marketing</a>
+                          <p className="text-sm font-light ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
                         </li>
+                        <span className="h-40 opacity-10 rounded-xl w-[2px] mt-2 bg-black left-[50%] absolute"></span>
+
                         <li>
                           <a href="">Branding</a>
+                          <p className="text-sm font-light ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
                         </li>
+                        <span className="h-40 opacity-10 rounded-xl w-[2px] mt-2 bg-black left-[73.2%] absolute"></span>
+
                         <li>
                           <a href="">Web Designing</a>
+                          <p className="text-sm font-light ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
                         </li>
+
                         <li>
                           <a href="">Online reception services</a>
+                          <p className="text-sm font-light ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
                         </li>
                         <li>
                           <a href="">UI/UX</a>
+                          <p className="text-sm font-light ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
                         </li>
                       </ul>
                     </div>
@@ -124,17 +151,28 @@ const Header = () => {
                 >
                   <NavLink to="/work">Pricing</NavLink>
                   {subMenu2 && (
-                    <div className=" sub-menu rounded z-10 p-4 bg-white  lg:absolute  lg:w-[80%] lg:h-[200px] lg:left-[10%] lg:invisible lg:opacity-0 lg:translate-y-[2.5rem]  ">
-                      <hr />
+                    <div  onMouseOver ={()=> setSubMenu1(true)} onMouseLeave ={()=> setSubMenu1(false)} className=" sub-menu rounded z-10 
+                    shadow-xl p-4 bg-white lg:rounded  lg:absolute  lg:w-[80%] lg:h-[200px] lg:left-[10%] lg:invisible lg:opacity-0 lg:translate-y-[2.5rem]  ">
+                       <hr className="p-1 border-t-2 " />
                       <ul className="pl-4 font-bold text-black text-lg lg:grid lg:grid-cols-3">
                         <li>
                           <a href="">Web Development pakages</a>
+                          <p className="text-sm font-light ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
                         </li>
-                        <li className="border">
+                        <span className="h-40 opacity-10 rounded-xl w-[2px] mt-2 bg-black left-[33%] absolute"></span>
+
+                        <li >
                           <a href="">Digital marketing pakages</a>
+                          <p className="text-sm font-light ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
                         </li>
+                        <span className="h-40 opacity-10 rounded-xl w-[2px] mt-2 bg-black left-[65%] absolute"></span>
+
                         <li>
                           <a href="">Youtube Subsription packages</a>
+                          <p className="text-sm font-light ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
                         </li>
                       </ul>
                     </div>
@@ -151,24 +189,33 @@ const Header = () => {
                 >
                   <NavLink to="/about">About us</NavLink>
                   {subMenu3 && (
-                    <div className="sub-menu lg:rounded z-10  p-4 bg-white lg:absolute  lg:right-[10%] lg:w-[80%] lg:h-[200px]    lg:invisible lg:opacity-0 lg:translate-y-[2.5rem] ">
-                      <hr />
+                    <div  onMouseOver ={()=> setSubMenu1(true)} onMouseLeave ={()=> setSubMenu1(false)} className="sub-menu
+                    shadow-xl lg:rounded z-10  p-4 bg-white lg:absolute  lg:right-[10%] lg:w-[80%] lg:h-[200px]    lg:invisible lg:opacity-0 lg:translate-y-[2.5rem] ">
+                      <hr className="p-1 border-t-2 " />
                       <ul className="pl-4 font-bold text-lg text-black lg:grid lg:grid-cols-4 lg:gap-10">
                         <li>
                           <a href="">Introduction</a>
+                          <p className="text-sm font-light ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
                         </li>
-                        <span className="h-40 opacity-10 rounded-xl w-[2px] mt-2 bg-black left-[20%] absolute"></span>
+                        <span className="h-40 opacity-10 rounded-xl w-[2px] mt-2 bg-black left-[25%] absolute"></span>
                         <li>
                           <a href="">How we work</a>
+                          <p className="text-sm font-light ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
                         </li>
-                        <span className="h-40 w-[2px] opacity-10 rounded-xl mt-2 bg-black left-[45%] absolute"></span>
+                        <span className="h-40 w-[2px] opacity-10 rounded-xl mt-2 bg-black left-[50%] absolute"></span>
 
                         <li>
                           <a href="">Our Activities</a>
+                          <p className="text-sm font-light ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
                         </li>
-                        <span className="h-40 w-[2px] opacity-10 rounded-xl mt-2 bg-black left-[70%] absolute"></span>
+                        <span className="h-40 w-[2px] opacity-10 rounded-xl mt-2 bg-black left-[75%] absolute"></span>
                         <li>
                           <a href="">Our Team</a>
+                          <p className="text-sm font-light ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
                         </li>
                       </ul>
                     </div>

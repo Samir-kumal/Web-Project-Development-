@@ -55,9 +55,9 @@ const Section_4 = () => {
 
 
   return (
-    <div className="testimonials xs:w-[100%] md:w-[100%] xl:w-[80%]  h-[500px]  m-auto  ">
-      <h2>Testimonials</h2>
-      <p>What our client's say about us</p>
+    <div className="testimonials  xs:w-[100%] md:w-[100%] xl:w-[80%]  h-[500px]  m-auto  ">
+      <h2 className="font-serif font-bold text-black">Testimonials</h2>
+      <p className="ml-4 font-semibold font-serif text-gray-700">What our client's say about us</p>
       <Slider  ref={sliderRef} {...settings}>
         
         <div style={{display:"flex", gap:"5rem"}}>

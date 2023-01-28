@@ -3,16 +3,17 @@ import React from 'react'
 const Footer = () => {
   return (
     <div>
-      <footer className="h-[300px] bg-red-600 flex items-center">
-      <div className="footer-content grid grid-cols-4 px-10   text-white w-full h-3/4 text-lg justify-center ">
-        <div className="section-1">
+      <footer className="h-fit pt-8 w-full pb-8 bg-red-600 flex items-center">
+      <div className="footer-content grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 px-10   text-white w-full h-3/4 text-lg justify-center ">
+        <div className="section-1 sm:pb-4">
           
           <h1 className="font-bold tracking-wider">CONTACT US</h1>
           <p>Shankhamul,Kathmandu, Nepal</p>
-          <p>+9779846061419,+9779806133772</p>
+          <p className='text-sm'>+9779846061419,+9779806133772</p>
           <p>+01-123456</p>
           <p>info@suscriber.com</p>
         </div>
+
        
         <div className="section-1">
           <h1 className="font-bold tracking-wider">QUICK LINKS </h1>
