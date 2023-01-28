@@ -75,7 +75,7 @@ const Section_1 = () => {
           </p>
           <br />
           <br />
-          <button className="absolute top-[90%] left-[0%] z-20 rounded-3xl  px-12 py-4 text-black font-semibold bg-slate-100 transition duration-200  border-2 hover:bg-black hover:text-white">
+          <button className="absolute top-[90%] left-[0%]  rounded-3xl  px-12 py-4 text-black font-semibold bg-slate-100 transition duration-200  border-2 hover:bg-black hover:text-white">
             <a href="google.com">Get Started</a>
           </button>
         </div>
