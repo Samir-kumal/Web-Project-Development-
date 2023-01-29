@@ -44,7 +44,6 @@ const ContactPage = () => {
     <>
       <Header />
       <div>
-        {/* <Header /> */}
         <main className="translate-y-20 mb-20">
           <div
             style={{

@@ -19,10 +19,14 @@ const Header = () => {
       setMenu(true);
     }
   };
+
+ 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 1024) {
         setMenu(false);
+      
+
       } else {
         setMenu(true);
       }
@@ -70,6 +74,20 @@ const Header = () => {
   }
 
 
+  const subMenu_mobile = () =>{
+    if (window.innerWidth >=1024) {
+       setSubMenu1(true);
+       console.log("submenu changed");
+    } else{
+      setSubMenu1(false);
+      console.log("submenu did changed");
+
+    }
+  }
+
+  
+
+
   return (
     
       <header style={navbarStyle}
@@ -90,15 +108,21 @@ const Header = () => {
                   <NavLink to="/">Home</NavLink>
                 </li>
                 <li
-                  onClick={() =>
-                    !subMenu1 ? setSubMenu1(true) : setSubMenu1(false)
-                  }
-                  onMouseOver ={()=> setSubMenu1(true)} onMouseLeave ={()=> setSubMenu1(false)}
+                  onClick={() => window.innerWidth <= 1024 && !subMenu1 ? setSubMenu1(true) : setSubMenu1(false)}
+                  // onClick={() =>
+                  //   !subMenu1 ? setSubMenu1(true) : setSubMenu1(false)
+                  // }
+                  // onMouseOver ={()=> window.innerWidth <1024 ? setSubMenu1(true)} onMouseLeave ={()=> setSubMenu1(false)}
+                  onMouseOver={() => window.innerWidth > 1024 && setSubMenu1(true)}
+                  onMouseLeave={() => window.innerWidth > 1024 && setSubMenu1(false)}
+
+
                   className="menu-item  text-xl px-4"
                 >
                   <NavLink to="/service">Services</NavLink>
                   {subMenu1 && (
-                    <div  onMouseOver ={()=> setSubMenu1(true)} onMouseLeave ={()=> setSubMenu1(false)} className=" sub-menu z-10 bg-white p-4 
+                    <div  onMouseOver={() => window.innerWidth > 1024 && setSubMenu1(true)}
+                    onMouseLeave={() => window.innerWidth > 1024 && setSubMenu1(false)} className=" sub-menu z-10 bg-white p-4 
                     shadow-xl lg:absolute  lg:w-[80%] lg:h-fit pb-4 h-fit  lg:right-[10%] lg:invisible lg:opacity-0 lg:translate-y-[2.5rem] ">
                       <hr className="p-1 border-t-2 " />
                       <ul className="pl-4  font-bold text-black text-lg lg:grid lg:grid-cols-4">
@@ -146,7 +170,8 @@ const Header = () => {
                   onClick={() =>
                     !subMenu2 ? setSubMenu2(true) : setSubMenu2(false)
                   }
-                  onMouseEnter ={()=> setSubMenu2(true)} onMouseLeave ={()=> setSubMenu2(false)}
+                  onMouseOver={() => window.innerWidth > 1024 && setSubMenu2(true)}
+                  onMouseLeave={() => window.innerWidth > 1024 && setSubMenu2(false)}
                   className="menu-item  text-xl px-4"
                 >
                   <NavLink to="/work">Pricing</NavLink>
@@ -185,7 +210,8 @@ const Header = () => {
                   onClick={() =>
                     !subMenu3 ? setSubMenu3(true) : setSubMenu3(false)
                   }
-                  onMouseEnter ={()=> setSubMenu3(true)} onMouseLeave ={()=> setSubMenu3(false)} className="menu-item text-xl px-4"
+                  onMouseOver={() => window.innerWidth > 1024 && setSubMenu3(true)}
+                  onMouseLeave={() => window.innerWidth > 1024 && setSubMenu3(false)} className="menu-item text-xl px-4"
                 >
                   <NavLink to="/about">About us</NavLink>
                   {subMenu3 && (
@@ -227,7 +253,7 @@ const Header = () => {
               </ul>
             </div>
             <div className="lg:translate-x-[-3rem] lg:absolute lg:right-0 lg:top-2  translate-x-0 p-2">
-              <button className="header-Btn text-red-500 bg-white px-4 py-3 rounded-3xl">
+              <button className="header-Btn lg:text-red-500 text-white lg:bg-white bg-red-600 px-4 py-3 rounded-3xl">
                 Join with us
               </button>
             </div>
