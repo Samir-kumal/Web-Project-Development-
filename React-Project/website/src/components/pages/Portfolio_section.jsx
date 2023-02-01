@@ -34,26 +34,26 @@ const Portfolio_section = () => {
               </div>
             </section>
           </div>
-          <section className="w-[1000px] m-auto mt-8 pb-8 grid-cols-5 text-black   h-fit ">
+          <section className="lg:w-[1000px] sm:w-fit gap-6 m-auto mt-8 pb-8 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3  text-black   h-fit ">
               <button className="border-1 w-28 h-12 mx-3 rounded-3xl bg-white border-red-600">
                 All
               </button>
-              <button className="border-1 px-12 h-12 mx-3 rounded-3xl bg-white border-red-600">
+              <button className="border-1 px-12 h-12 pb-2 mx-3 rounded-3xl bg-white border-red-600">
                 Website
               </button>
-              <button className="border-1 w-[12rem] h-12 mx-3 rounded-3xl bg-white border-red-600">
+              <button className="border-1 w-[12rem]  h-12 mx-3 rounded-3xl bg-white border-red-600">
                 Mobile Application
               </button>
-              <button className="border-1 px-12 h-12 mx-3 rounded-3xl bg-white border-red-600">
+              <button className="border-1 px-12 h-12 pb-2 mx-3 rounded-3xl bg-white border-red-600">
                 Logo Design
               </button>
-              <button className="border-1 px-12 h-12 mx-3 rounded-3xl bg-white border-red-600">
+              <button className="border-1 px-12 h-12  mt-3 mx-3 rounded-3xl bg-white border-red-600">
                 Graphics Design
               </button>
             </section>
           </div>
 
-          <div className="portfolio_card_list grid w-[85%] m-auto py-4 mb-4  grid-cols-3 gap-8">
+          <div className="portfolio_card_list grid w-[85%] m-auto py-4 mb-4  lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8">
             <div className="portfolio_card m-auto project-card w-[350px] h-[300px] " >
             </div>
             <div className="portfolio_card m-auto project-card w-[350px] h-[300px] " >

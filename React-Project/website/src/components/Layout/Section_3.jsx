@@ -19,7 +19,7 @@ const Section_3 = () => {
 </lottie-player>
           </div>
           <div>
-            <h1 className="text-4xl font-bold ">We are the Visionary Enthugiast</h1>
+            <h1 className="text-4xl font-serif font-bold ">We are the Visionary Enthugiast</h1>
             <br />
             <br />
             <p className="text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus minima explicabo eligendi quas distinctio et, architecto similique porro excepturi, sunt reiciendis commodi officia facere eveniet? Magni autem architecto animi provident.</p>
