@@ -10,6 +10,7 @@ const Header = () => {
   const [subMenu3, setSubMenu3] = useState(false);
   const [Navbar, setNavbar] = useState(false);
   const location = useLocation();
+  // const header = document.querySelector('header');
   let navbarStyle = {};
 
   const Toggle = () => {
@@ -20,16 +21,35 @@ const Header = () => {
     }
   };
 
+//   function handleHeaderColor() {
+//     if (menu) {
+//       header.style.backgroundColor = "white";
+//     } else {
+//       header.style.backgroundColor = "transparent";
+//     }
+//     if (window.scrollY > 80) {
+//       header.style.backgroundColor = "red";
+//     }
+//   }
+  
+// let menu = false;
+// document.querySelector(".menu-button").addEventListener("click", () => {
+//   menu = !menu;
+//   handleHeaderColor();
+// });
+
+// window.addEventListener("scroll", handleHeaderColor);
  
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 1024) {
         setMenu(false);
-      
 
       } else {
         setMenu(true);
+
       }
+     
     };
 
     handleResize();
@@ -67,10 +87,13 @@ const Header = () => {
     };
   }, []);
 
-  if (location.pathname !== '/') {
-    navbarStyle = { backgroundColor: '#DC2626' }
-  } else {
+  if (location.pathname === '/about' || location.pathname === '/portfolio') {
     navbarStyle = { backgroundColor: 'transparent' }
+  } else if (location.pathname === '/') {
+    navbarStyle = { backgroundColor: 'transparent' }
+  }
+   else  {
+    navbarStyle = { backgroundColor: 'red' }
   }
 
 
@@ -93,17 +116,17 @@ const Header = () => {
       <header style={navbarStyle}
         className={
           Navbar
-            ? "Navbar sticky  h-20 w-full  lg:flex items-center justify-between"
-            : "Navbar fixed z-10 h-20 w-full lg:flex items-center justify-between"
+            ? "Navbar sticky text-black  h-20 w-full  lg:flex items-center justify-between"
+            : "Navbar fixed text-white z-10 h-20 w-full lg:flex items-center justify-between"
         }
       >
-        <div className="logo">
+        <div className="logo translate-x-28">
           <img src={Image} alt="" height="90px" width="90px" />
         </div>
         {Menu && (
-          <div className="lg:flex lg:w-[80%]  Navmenu">
-            <div className="menu flex  items-center   ">
-              <ul className="menu-items  lg:flex text-white xl:gap-[2rem]">
+          <div className="lg:flex lg:w-[80%]   Navmenu  transition duration-200 ">
+            <div className="menu flex   items-center   ">
+              <ul className="menu-items lg:items-center  lg:flex  xl:gap-[1rem]">
                 <li className="menu-item main-home text-xl px-4">
                   <NavLink to="/">Home</NavLink>
                 </li>
@@ -118,12 +141,13 @@ const Header = () => {
 
 
                   className="menu-item  text-xl px-4"
-                >
+
+                > 
                   <NavLink to="/service">Services</NavLink>
                   {subMenu1 && (
                     <div  onMouseOver={() => window.innerWidth > 1024 && setSubMenu1(true)}
                     onMouseLeave={() => window.innerWidth > 1024 && setSubMenu1(false)} className=" sub-menu z-10 bg-white p-4 
-                    shadow-xl lg:absolute  lg:w-[80%] lg:h-fit pb-4 h-fit  lg:right-[10%] lg:invisible lg:opacity-0 lg:translate-y-[2.5rem] ">
+                    shadow-xl lg:absolute transition duration-300 lg:w-[80%] lg:h-fit pb-4 h-fit  lg:right-[10%] lg:invisible lg:opacity-0 lg:translate-y-[2.5rem] ">
                       <hr className="p-1 border-t-2 " />
                       <ul className="pl-4  font-bold text-black text-lg lg:grid lg:grid-cols-4">
                         <li>
@@ -248,12 +272,16 @@ const Header = () => {
                   )}
                 </li>
                 <li className="menu-item  text-xl px-4">
+                  <NavLink to="/careers">Careers</NavLink>
+                </li>
+                <li className="menu-item  text-xl px-4">
                   <NavLink to="/contact">Contact us</NavLink>
                 </li>
+             
               </ul>
             </div>
-            <div className="lg:translate-x-[-3rem] lg:absolute lg:right-0 lg:top-2  translate-x-0 p-2">
-              <button className="header-Btn lg:text-red-500 text-white lg:bg-white bg-red-600 px-4 py-3 rounded-3xl">
+            <div className="lg:translate-x-[-9rem]  lg:absolute lg:right-0 lg:top-2  translate-x-0 p-3">
+              <button className="header-Btn lg:text-black border-2 border-red-500 font-semibold text-white lg:bg-white lg:hover:bg-red-500 lg:hover:text-white transition duration-200 bg-red-600 px-4 py-3 rounded-3xl">
                 Join with us
               </button>
             </div>

@@ -55,13 +55,13 @@ const Section_4 = () => {
 
 
   return (
-    <div className="testimonials  xs:w-[100%] md:w-[100%] xl:w-[80%]  h-[500px]  m-auto  ">
+    <div className="testimonials  xs:w-[100%] md:w-[100%] xl:w-[80%]  h-[350px]  m-auto  ">
       <h2 className="font-serif font-bold text-black">Testimonials</h2>
       <p className="ml-4 font-semibold font-serif text-gray-700">What our client's say about us</p>
       <Slider  ref={sliderRef} {...settings}>
         
-        <div style={{display:"flex", gap:"5rem"}}>
-        <div className="card ">
+        <div className="p-4" style={{display:"flex", gap:"5rem"}}>
+        <div className="card card_testimonials ">
           <img className="card-img-top" src={Ravi} alt="Person 1" />
           <br />
           <div className="card-body ">
@@ -70,8 +70,8 @@ const Section_4 = () => {
           </div>
         </div>
         </div>
-        <div style={{display:"flex", gap:"5rem"}}>
-        <div className="card ">
+        <div className="p-4" style={{display:"flex", gap:"5rem"}}>
+        <div className="card card_testimonials">
           <img className="card-img-top" src={Prachanda} alt="Person 2" />
           <br />
           <div className="card-body">
@@ -81,8 +81,8 @@ const Section_4 = () => {
           </div>
         </div>
         </div>
-        <div style={{display:"flex", gap:"5rem"}}>
-        <div className="card  ">
+        <div className="p-4" style={{display:"flex", gap:"5rem"}}>
+        <div className="card card_testimonials ">
           <img className="card-img-top" src={Deuba} alt="Person 2" />
           <br />
           <div className="card-body">
@@ -92,8 +92,8 @@ const Section_4 = () => {
           </div>
         </div>
         </div>
-        <div style={{display:"flex", gap:"5rem"}}>
-        <div className="card ">
+        <div className="p-4" style={{display:"flex", gap:"5rem"}}>
+        <div className="card card_testimonials">
           <img className="card-img-top" src={KPoli} alt="Person 2" />
           <br />
           <div className="card-body">

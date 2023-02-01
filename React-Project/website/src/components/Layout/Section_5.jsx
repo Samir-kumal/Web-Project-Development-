@@ -53,7 +53,7 @@ const Section_5 = () => {
 
 
   return (
-    <div className="testimonials xs:w-[100%] md:w-[100%] xl:w-[80%]  h-[500px]  m-auto  ">
+    <div className="testimonials bg-[#F1F2F3] xs:w-[100%] md:w-[100%] xl:w-[80%]  h-[500px]  m-auto  ">
       <h2>Testimonials</h2>
       <p>What our client's say about us</p>
       <Slider  ref={sliderRef} {...settings}>
