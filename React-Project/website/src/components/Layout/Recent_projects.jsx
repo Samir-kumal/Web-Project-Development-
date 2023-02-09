@@ -51,7 +51,7 @@ const Recent_projects = () => {
       <h2 className="font-serif font-bold text-black text-8xl">Our Recent Projects</h2>
       <Slider ref={sliderRef} {...settings}>
         <div className="">
-          <div className="card card_Recent_projects flex flex-between">
+          <div className="card card_Recent_projects lg:flex  flex-between">
             <div>
               <img
                 className=" recent_project_cards"

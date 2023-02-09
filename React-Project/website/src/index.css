@@ -173,6 +173,11 @@ body {
   
 }
 
+lottie-player{
+  width: 300px;
+  height: 300px;
+}
+
 /* Portfolio page card section  */
 .portfolio_section{
   background-image: url(./Images/Wave-10s-1366px.svg);
@@ -508,7 +513,7 @@ body {
   .Navbar.sticky {
     position: fixed;
     width: 100%;
-    background: hwb(0 15% 14%) !important;
+    background: hwb(0 100% 0%) !important;
     top: 0;
     z-index: 5;
   }

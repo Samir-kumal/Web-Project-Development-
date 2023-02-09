@@ -8,7 +8,7 @@ import "/src/App.css";
 
 const Language_slider = () => {
   const sliderRef = useRef(null);
-  //   const [slideToShow, setSlideToShow] = useState(1);
+    const [slideToShow, setSlideToShow] = useState(5);
 
   useEffect(() => {
     let currentSlide = 0;
@@ -21,13 +21,31 @@ const Language_slider = () => {
     }, 5000);
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 1000 && window.innerWidth >= 500) {
+        setSlideToShow(3);
+      } else if (window.innerWidth < 500) {
+        setSlideToShow(2);
+      } else {
+        setSlideToShow(6);
+      }
+    };
+  
+    window.addEventListener("resize", handleResize);
+  
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
  
 
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 6,
+    slidesToShow: slideToShow,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 5000,
@@ -35,7 +53,7 @@ const Language_slider = () => {
   };
 
   return (
-    <div className="testimonials   xs:w-[100%] md:w-[100%] xl:w-[80%]  h-[200px]  m-auto  ">
+    <div data-aos = "fade-up" data-aos-duration="1000" className="testimonials   xs:w-[100%] md:w-[100%] xl:w-[80%]  h-[200px]  m-auto  ">
         <h1 className="text-4xl text-center font-serif  font-bold">Tools and Technologies</h1>
 
       <Slider ref={sliderRef} {...settings}>
